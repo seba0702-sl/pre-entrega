@@ -1,5 +1,5 @@
 html, body {
-    background-image: url('/fondo-pagina.png');
+    background-image: url('fondo-pagina.png');
     background-size: cover;
     /* cubre toda la pantalla */
     background-position: center;
