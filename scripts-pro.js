@@ -1,9 +1,9 @@
 // Simulamos los productos de la API
 const productos = [
-    { id: 1, nombre: "Producto 1", imagen: "/imagenes/producto1.png", descripcion: "Este es el Producto 1." },
-    { id: 2, nombre: "Producto 2", imagen: "/imagenes/producto2.png", descripcion: "Este es el Producto 2." },
-    { id: 3, nombre: "Producto 3", imagen: "/imagenes/producto3.png", descripcion: "Este es el Producto 3." },
-    { id: 4, nombre: "Producto 4", imagen: "/imagenes/producto4.png", descripcion: "Este es el Producto 4." }
+    { id: 1, nombre: "Producto 1", imagen: "producto1.png", descripcion: "Este es el Producto 1." },
+    { id: 2, nombre: "Producto 2", imagen: "producto2.png", descripcion: "Este es el Producto 2." },
+    { id: 3, nombre: "Producto 3", imagen: "producto3.png", descripcion: "Este es el Producto 3." },
+    { id: 4, nombre: "Producto 4", imagen: "producto4.png", descripcion: "Este es el Producto 4." }
 ];
 
 // Cargar productos desde el "API" (en este caso, desde el array)
@@ -66,7 +66,7 @@ function agregarAlCarrito(idProducto) {
     mostrarCarrito();
 }
 
-// Mostrar los productos del carrito
+// funcion para mostrar los productos del carrito
 function mostrarCarrito() {
     const carrito = obtenerCarrito();
     const contenedorCarrito = document.getElementById("carrito");
@@ -86,7 +86,7 @@ function mostrarCarrito() {
         contenedorCarrito.innerHTML += productoHTML;
     });
 
-    // Agregar eventos para cambiar cantidad y eliminar productos
+    //son eventos para cambiar cantidad y eliminar productos
     const botonesEliminar = document.querySelectorAll(".eliminar");
     botonesEliminar.forEach(boton => {
         boton.addEventListener("click", (event) => {
@@ -95,7 +95,7 @@ function mostrarCarrito() {
         });
     });
 
-    // Evento para editar cantidad
+    // Evento para editar la cantidad del carrito
     const inputsCantidad = document.querySelectorAll(".cantidad");
     inputsCantidad.forEach(input => {
         input.addEventListener("change", (event) => {
@@ -106,7 +106,7 @@ function mostrarCarrito() {
     });
 }
 
-// Función para editar la cantidad de un producto
+// Función para editar la cantidad de un producto en el carrito
 function editarCantidad(idProducto, cantidad) {
     let carrito = obtenerCarrito();
     const producto = carrito.find(p => p.id == idProducto);
@@ -125,12 +125,12 @@ function eliminarDelCarrito(idProducto) {
     mostrarCarrito();
 }
 
-// Vaciar carrito
+// asi se Vacia el carrito
 document.getElementById("vaciar-carrito").addEventListener("click", () => {
     localStorage.removeItem("carrito");
     mostrarCarrito();
 });
 
-// Mostrar productos al cargar la página
+// muestra los productos al cargar la página
 mostrarProductos(productos);
 mostrarCarrito();
